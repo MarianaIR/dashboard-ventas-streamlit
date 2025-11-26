@@ -76,7 +76,7 @@ fact_ciudades = datos.drop_duplicates(subset="Lugar de Compra")[["Lugar de Compr
 facturacion_mensual = datos.set_index("Fecha de Compra").groupby(pd.Grouper(freq="ME"))["Precio"].sum().reset_index()
 
 facturacion_mensual["Año"] = facturacion_mensual["Fecha de Compra"].dt.year
-facturacion_mensual["Mes"] = facturacion_mensual["Fecha de Compra"].dt.month_name("es")
+facturacion_mensual["Mes"] = facturacion_mensual["Fecha de Compra"].dt.month_name()
 
 facturacion_cat = datos.groupby("Categoría del Producto")[["Precio"]].sum().sort_values("Precio", ascending=False)
 
